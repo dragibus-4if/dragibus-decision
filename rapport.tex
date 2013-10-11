@@ -1,0 +1,66 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[frenchb]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{listings}
+\usepackage{hyperref}
+
+\title{Aide à la décision}
+\author{Dragibus}
+\date{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Définition}
+Soit $E_M = \left\{1, 2, 3, 4, 5, 6, 7\right\} $ l'ensemble des machines. \\
+Soit $E_{MP} = \left\{MP1, MP2, MP3\right\} $ l'ensemble des matières premières. \\
+Soit $E_P = \left\{A, B, C, D, E, F\right\} $ l'ensemble des produits. \\
+Soit $B$ le bénifice de l'entreprise. \\
+Soit $TTH$ le temps de travail hebdomadaire. \\
+Soit $X(i)$ le nombre de produit $i\in E_P$ fait. \\
+Soit $S(p)$ la quantité en stock de la matière première $p\in E_{MP}$. \\
+Soit $TM(m)$ le temps d'utilisation de la machine $m\in E_M$.\\
+Soit $G(i)$ le gain engendré par le produit $i$. \\
+Soit $V(i)$ le prix de vente du produit $i$. \\
+Soit $P(i)$ la perte engendré par le produit $i$. \\
+Soit $Q(i, p)$ la quantité de matière $p$ nécessaire pour le produit $i$. \\
+Soit $A(p)$ le prix d'achat de la matière $p$. \\
+Soit $C(m)$ le cout de la machine $m$. \\
+Soit $T(i, m)$ le temps d'usinage de la machine $m$ pour le produit $i$. \\
+
+$$
+\begin{array}{r l}
+    G(i) =  & V(i)\cdot X(i) \\
+    P(i) =  & X(i)\left(\sum_{p\in E_{MP}} A(p)Q(i, p)+ \sum_{m\in E_M} C(m)T(i, m)\right) \\
+    B =     & \sum_{i\in E_P} G(i) - P(i) \\
+    TM(m) = & \sum_{i\in E_P} X(i)T(i, m) \\
+    TTH =   & \sum_{m\in E_M} TM(m) \\
+    S(p) =  & \sum_{i\in E_P} X(i)Q(i, p) \\
+\end{array}
+$$
+
+\section{Ensemble des contraintes}
+$$
+\begin{array}{r l}
+    \forall i\in E_P, & X(i) > 0 \\
+    \forall m\in E_M, & TM(m) \in [0, 4800\mbox{min}] \\
+                      & TTH \in [0, 4800\mbox{min}] \\
+                      & B > 0 \\
+                      & S(MP1) \in [0, 650] \\
+                      & S(MP2) \in [0, 820] \\
+                      & S(MP3) \in [0, 585] \\
+\end{array}
+$$
+
+\end{document}
