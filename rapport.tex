@@ -63,4 +63,37 @@ $$
 \end{array}
 $$
 
+\section{Optimisation monocritère}
+\subsection{Comptable}
+\subsection{Responsable d'atelier}
+L'objectif du responsable atelier est de maximiser le nombre de produits fabriqués.
+La fonction a maximiser est donc la suivante : \\
+$ f(X) = X(A) + X(B) + X(C) + X(D) + X(E) + X(F) $
+
+\subsection{Responsable des stocks}
+Le responsable des stocks veut minimiser le nombre de produits dans son stock,
+tout en gardant un bénéfice positif permettant à l'entreprise de continuer sa croissance.
+On considère alors la taille de stock initial au début de la semaine de production
+plus l'espace que prendront les produits fabriqués.
+
+La fonction a minimiser est donc la suivante : \\
+$f(X) = 2\cdot \sum_{p\in E_{MP}} S(p)$ \\
+$f(X) = 5 X(A) + 6 X(B) + 8 X(D) + 9 X(E) + 4 X(F)$ \\
+
+Le stock ne peut etre négatif donc on contraint a etre supérieur à 0.
+Le minimum de cette fonction est alors 0. Il est donc nécessaire de rajouter
+des contraintes afin d'avoir un résultats réalistes.
+On contraint le système en prenant alors d'autres critères.
+On peut maximiser le bénéfice ou la production par exemple.
+
+\subsection{Responsable commercial}
+L'objectif du responsable commercial est d'équilibrer les quantités faites par famille de produits.
+La quantité de production des produits A, B et C doit etre la meme que celle des produits D, E et F : \\
+$X(A) + X(B) + X(C) = X(D) + X(E) + X(F)$ \\
+
+La fonction a minimiser est donc celle représentant la différence de production des deux familles : \\
+$f(X) = \mbox{abs}((X(A) + X(B) + X(C)) - (X(D) + X(E) + X(F))) $
+
+\subsection{Responsable du personnel}
+
 \end{document}
