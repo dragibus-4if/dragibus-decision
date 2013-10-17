@@ -10,5 +10,8 @@ prodTot(1,i) = sum(personnel((i/pas)*benefMax));
 end
 
 plot(benef,prodTot,'k')
-
+plot([0.7*benefMax 0.7*benefMax], [0 600]);
+plot([0.9*benefMax 0.9*benefMax], [0 600]);
+plot([5535 5535], [0 600]);
+plot(benef,482.4);
 end
