@@ -78,18 +78,19 @@ $\mbox{CoutAchat}(E) = (0~2~6)\cdot(3~4~2)^t = 20$ \\
 $\mbox{CoutAchat}(F) = (2~1~0)\cdot(3~4~2)^t = 10$ \\
 
 Valeurs fausses pour le moment car manque de conversion minute/heure. \\
-$CoupMachine(A) = (11~0~12~2~15~5~5)\cdot(2~2~1~1~2~3~1)^t = 86$ \\
-$CoupMachine(B) = (15~1~1~10~0~5~3)\cdot(2~2~1~1~2~3~1)^t = 61$ \\
-$CoupMachine(C) = (0~2~11~5~0~13~5)\cdot(2~2~1~1~2~3~1)^t = 64$ \\
-$CoupMachine(D) = (5~8~0~4~0~12~28)\cdot(2~2~1~1~2~3~1)^t = 94$ \\
-$CoupMachine(E) = (0~7~10~13~10~8~0)\cdot(2~2~1~1~2~3~1)^t = 71$ \\
-$CoupMachine(D) = (10~12~15~7~25~0~7)\cdot(2~2~1~1~2~3~1)^t = 123$ \\
+$CoupMachine(A) = (11~0~12~2~15~5~5)\cdot\frac{1}{60}(2~2~1~1~2~3~1)^t = \frac{86}{60}$ \\
+$CoupMachine(B) = (15~1~1~10~0~5~3)\cdot\frac{1}{60}(2~2~1~1~2~3~1)^t = \frac{61}{60}$ \\
+$CoupMachine(C) = (0~2~11~5~0~13~5)\cdot\frac{1}{60}(2~2~1~1~2~3~1)^t = \frac{64}{60}$ \\
+$CoupMachine(D) = (5~8~0~4~0~12~28)\cdot\frac{1}{60}(2~2~1~1~2~3~1)^t = \frac{94}{60}$ \\
+$CoupMachine(E) = (0~7~10~13~10~8~0)\cdot\frac{1}{60}(2~2~1~1~2~3~1)^t = \frac{71}{60}$ \\
+$CoupMachine(D) = (10~12~15~7~25~0~7)\cdot\frac{1}{60}(2~2~1~1~2~3~1)^t = \frac{123}{60}$ \\
 
-$P(X) = X\cdot\left((13~11~13~19~20~10) + (86~61~64~94~71~123)\right)^t$ \\
-$P(X) = X\cdot(99~72~77~113~91~133)^t$ \\
+$P(X) = X\cdot\left((13~11~13~19~20~10) + \frac{1}{60}(86~61~64~94~71~123)\right)^t$ \\
+$P(X) = X\cdot\frac{1}{60}(866~721~844~1234~1271~723)^t$ \\
 
 $B(X) = G(X) - P(X)$ \\
-$B(X) = X\cdot\mbox{something}$ \\
+$B(X) = X\cdot\frac{1}{60}(814~479~956~986~1429~597)^t$ \\
+$B(X) = X\cdot(13.5667~7.98333~15.9333~16.4333~23.8167~9.95)^t$ \\
 
 \subsection{Responsable d'atelier}
 L'objectif du responsable atelier est de maximiser le nombre de produits fabriqués.
