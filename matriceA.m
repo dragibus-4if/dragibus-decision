@@ -33,3 +33,4 @@ Aeq = [1 1 1 -1 -1 -1];
 beq = 0;
 
 X = linprog(f, A, b, [], [], lb)
+X2 = linprog(f, A, b)

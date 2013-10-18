@@ -22,18 +22,23 @@
 \tableofcontents
 \newpage
 
+\section{Introduction}
+	Cette étude se déroulera en trois parties. Dans la première nous considèrerons le nombre de produits de chaque type à produire pour optimiser les critères retens par chaque cadre de l'entreprise ADécision. La deuxième partie comprendra une analyse de tous les critères considérés dans la première partie et la recherche d'une solution de compromis satisfaisant chacun d'entre-eux. La dernière partie consistera en la sélection d'une solution finale parmis celles proposées précédemment.
+
 \section{Définition}
+Nous définissons ici les notations que nous utiliserons dans la suite de ce rapport et exprimmons certaines notions sous forme de fonctions mathématiques. \\
 Soit $E_M = \left\{1, 2, 3, 4, 5, 6, 7\right\} $ l'ensemble des machines. \\
 Soit $E_{MP} = \left\{MP1, MP2, MP3\right\} $ l'ensemble des matières premières. \\
 Soit $E_P = \left\{A, B, C, D, E, F\right\} $ l'ensemble des produits. \\
 Soit $B$ le bénéfice de l'entreprise. \\
 Soit $TTH$ le temps de travail hebdomadaire. \\
 Soit $X(i)$ le nombre de produit $i\in E_P$ fait. \\
+Soit $X = \left\{X(1), X(2), X(3), X(4), X(5), X(6), X(7)\right\}$ le vecteur définissant les quantités de chaque produit à fabriquer.\\
 Soit $S(p)$ la quantité en stock de la matière première $p\in E_{MP}$. \\
 Soit $TM(m)$ le temps d'utilisation de la machine $m\in E_M$.\\
 Soit $G(i)$ le gain engendré par le produit $i$. \\
 Soit $V(i)$ le prix de vente du produit $i$. \\
-Soit $P(i)$ la perte engendré par le produit $i$. \\
+Soit $P(i)$ la perte engendrée par le produit $i$. \\
 Soit $Q(i, p)$ la quantité de matière $p$ nécessaire pour le produit $i$. \\
 Soit $A(p)$ le prix d'achat de la matière $p$. \\
 Soit $C(m)$ le cout de la machine $m$. \\
@@ -51,6 +56,7 @@ $$
 $$
 
 \section{Ensemble des contraintes}
+Cette section exprime sous forme mathématique les différentes contraintes inhérentes a fonctionnement de l'entreprise.
 $$
 \begin{array}{r l}
     \forall i\in E_P, & X(i) > 0 \\
@@ -64,9 +70,40 @@ $$
 $$
 
 \section{Optimisation monocritère}
+
+Dans cette partie, nous considérons un par un les différents critères retenus par les différents cadres de l’entreprise ADécision.
+    Nous commençons par exprimer le problème sous forme d’un modèle mathématique. Il est possible de modéliser chacune des situations suivantes sous forme d’une fonction f de X  à minimiser en respectant la condition     $A . X \leq b$;
+
+ $A = \begin{pmatrix}
+11&15&0&5&0&10 \\
+0&1&2&8&7&12\\
+12&1&11&0&10&15\\
+2&10&5&4&13&7\\
+15&0&0&0&10&25\\
+5&5&13&12&8&0\\
+5&3&5&28&0&7\\
+1&1&1&5&0&2\\
+2&2&1&0&2&1\\
+1&0&3&2&6&0
+\end{pmatrix}$\\
+
+$b = \begin{pmatrix}
+4800\\
+4800\\
+4800\\
+4800\\
+4800\\
+4800\\
+4800\\
+650\\
+820\\
+585\\
+\end{pmatrix}$
+
+
 \subsection{Comptable}
-L'objectif du comptables et de maximiser les bénéfices de l'entreprise.
-Il suffit alors de maximiser la fonction de bénéfice définie précédemment.
+L'objectif du comptable est de maximiser les bénéfices de l'entreprise.
+Il suffit donc de maximiser la fonction de bénéfice définie précédemment.
 
 $G(X) = X\cdot(28~20~30~37~45~22)^t$ \\
 
@@ -77,7 +114,7 @@ $\mbox{CoutAchat}(D) = (5~0~2)\cdot(3~4~2)^t = 19$ \\
 $\mbox{CoutAchat}(E) = (0~2~6)\cdot(3~4~2)^t = 20$ \\
 $\mbox{CoutAchat}(F) = (2~1~0)\cdot(3~4~2)^t = 10$ \\
 
-Valeurs fausses pour le moment car manque de conversion minute/heure. \\
+
 $CoupMachine(A) = (11~0~12~2~15~5~5)\cdot\frac{1}{60}(2~2~1~1~2~3~1)^t = \frac{86}{60}$ \\
 $CoupMachine(B) = (15~1~1~10~0~5~3)\cdot\frac{1}{60}(2~2~1~1~2~3~1)^t = \frac{61}{60}$ \\
 $CoupMachine(C) = (0~2~11~5~0~13~5)\cdot\frac{1}{60}(2~2~1~1~2~3~1)^t = \frac{64}{60}$ \\
@@ -92,14 +129,41 @@ $B(X) = G(X) - P(X)$ \\
 $B(X) = X\cdot\frac{1}{60}(814~479~956~986~1429~597)^t$ \\
 $B(X) = X\cdot(13.5667~7.98333~15.9333~16.4333~23.8167~9.95)^t$ \\
 
+L'on détermine donc le vecter X maximisant les bénéfices selon les contraintes du problème en minimisant la fonction :\\
+$f(X) = -13.5667 X - 7.98333 X - 15.9333 X - 16.4333 X - 23.8167 X - 9.95 X$\\
+sous les contraintes \begin{equation}
+  \left\{
+    \begin{split}
+     A\cdot X \leq b\\ 
+     0 \leq X
+    \end{split}
+  \right.
+\end{equation}\\
+
+L'on obtient le résultat suivant :\\
+$X=(235.6250~98.3929~101.3393~22.6786~0~50.6280)$\\
+
+Cela correspond à un bénéfice de 6473.2 €.
+
+
 \subsection{Responsable d'atelier}
 L'objectif du responsable atelier est de maximiser le nombre de produits fabriqués.
-La fonction à maximiser est donc la suivante : \\
-$ f(X) = X(A) + X(B) + X(C) + X(D) + X(E) + X(F) $
+Il faut donc minimiser la fonction suivante : \\
+$ f(X) = -X(A) + -X(B) + -X(C) + -X(D) + -X(E) + -X(F) $\\
+en respectant les contraintes suivantes : \\
+\begin{equation}
+  \left\{
+    \begin{split}
+     A\cdot X \leq b\\ 
+     0 \leq X
+    \end{split}
+  \right.
+\end{equation}\\
+
+L'on obtient le résultat suivant : $X = (0~252.5~195.0~0~0~101.25)$\\
 
 \subsection{Responsable des stocks}
-Le responsable des stocks veut minimiser le nombre de produits dans son stock,
-tout en gardant un bénéfice positif permettant à l'entreprise de continuer sa croissance.
+Le responsable des stocks veut minimiser la taille des stocks, c'est à dire le nombre de produits ainsi que la quantité de matières premières stockés. L'on cherche  aussi à garder un bénéfice positif permettant à l'entreprise de continuer sa croissance.
 On considère alors la taille de stock initial au début de la semaine de production
 plus l'espace que prendront les produits fabriqués.
 
