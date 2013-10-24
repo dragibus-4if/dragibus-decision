@@ -1,6 +1,7 @@
-function[Xpersonnel] = personnel(benef)
+function[Xpersonnel] = personnel(benef, funcMin)
 
-f = [26; 15; 0; 5; 10; 35];
+%f = [26; 15; 0; 5; 10; 35];
+f = funcMin;
 
 A = [11 15 0 5 0 10;
      0 1 2 8 7 12;
@@ -26,17 +27,3 @@ Xpersonnel = linprog(f, A, b, [], [], lb);
 
 end
 
-% function[resX]=graph_personnel(pas)
-% hold on
-% benefMax = 6473.2;
-% resX=zeros(0);
-% 
-% for i=1:pas
-% benef(1,i)=((i)/pas)*benefMax;
-% prodTot(1,i) = sum(personnel((i/pas)*benefMax));
-% 
-% end
-% 
-% plot(benef,prodTot,'k')
-% 
-% end
