@@ -58,15 +58,25 @@ entre le cas générant le plus de bénéfices, et le cas idéal pour chaque
 responsable. \\
 
 % TODO réparer le positionnement de l'image
-\begin{figure}
-    \includegraphics[scale=0.3]{graph_multi.png}
-    \caption{Graphe représentant l'évolution du bénéfice (en euros) par rapport
-        au pourcentage d'interpolation linéaire.}
-\end{figure}
+%\begin{figure}
+%    \includegraphics{graph_multi.png}
+%    \caption{Graphe représentant l'évolution du bénéfice (en euros) par rapport
+%        au pourcentage d'interpolation linéaire.}
+%\end{figure}
 
 Nous pouvons noter que les critères du responsable d'atelier et du responsable
 commercial n'influent pas énormément sur le bénéfice, contrairement au
 responsable des stocks, qui présente une corrélation linéaire avec la
-diminution du bénéfice. \\
+diminution du bénéfice.
+Nous remarquons que l'évolution du bénéfice en fonction du compromis pour les
+responsables d'atelier et du personnel démarre par une décroissance faible
+jusqu'à certaines valeurs "critiques" (respectivement 88\% et 50\%), ou la
+pente de dégression s'accroit. \\
+
+De ce fait, nous ajusterons le compromis de ces derniers à ces valeurs limites,
+afin qu'ils soient satisfaits au maximum, sans engendrer une perte trop
+importante de bénéfice. \\
+
+% TODO
 
 \end{document}
