@@ -265,7 +265,30 @@ rapide des stocks. \\
 On trouve alors : $ X = (319.5453 ~0.3081 ~87.1207 ~0.0000 ~0.6821 ~0.0000) $
 
 \subsection{Responsable du personnel}
-Le responsable du personnel souhaite limiter l'usage des machines 1 et 5.
+L’objectif du responsable du personnel est de minimiser le temps d’utilisation des machines 1 et 5 pour l’ensemble de la production.\\ 
+\newline
+Alors, il s’agit de minimiser la fonction suivante:\\
+
+$f(X) = (TM1A + TM5A)*X(A) + (TM1B + TM5B)*X(B) + (TM1C + TM5C)*X(C) + (TM1D + TM5D)*X(D) + (TM1E + TM5E)*X(E) + (TM1F + TM5F)*X(F) =\\
+= 26*X(A) + 15*X(B) + 0*X(C) + 5*X(D) + 10*X(E) + 35*X(F)$\\
+\newline
+La table des temps de production d’un produit par machine nous montre, que le produit C n’a pas besoins des deux machine en question, ce qui signifie que la solution la plus simple sera d’arreter la production des autres produits et de se concentrer sur la fabrication de produit C.
+\newline
+Une approche algorithmique confirme cette solution et nous donne le plan de production suivant:\\
+
+$X = \begin{pmatrix}
+0.0000\\
+0.0000\\
+135.6644\\
+0.0000\\
+0.0000\\
+0.0000\\
+\end{pmatrix}$
+\newline
+Par contre, cette solution ne donne pas assez de bénéfice pour l’entreprise, alors, il faut ajouter d’autres contraintes afin de trouver une vraie solution.
+\newline
+Tenant en compte le bénéfice de l’entreprise, on souhaite ne pas souspasser 70\% du bénéfice maximum. Si on considère cette nouvelle contrainte et qu’on calcule les montants des produits à fabriquer, on reçoit le graph suivant:\\
+
 % TODO
 \\ \textbf{TODO} \\
 
