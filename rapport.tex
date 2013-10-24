@@ -265,51 +265,51 @@ rapide des stocks. \\
 On trouve alors : $ X = (319.5453 ~0.3081 ~87.1207 ~0.0000 ~0.6821 ~0.0000) $
 
 \subsection{Responsable du personnel}
-L’objectif du responsable du personnel est de minimiser le temps d’utilisation des machines 1 et 5 pour l’ensemble de la production.\\ 
-\newline
-Alors, il s’agit de minimiser la fonction suivante:\\
+L’objectif du responsable du personnel est de minimiser le temps d’utilisation
+des machines 1 et 5 pour l’ensemble de la production. Alors, il s’agit de
+minimiser la fonction suivante:\\
 
-$f(X) = (TM1A + TM5A)*X(A) + (TM1B + TM5B)*X(B) + (TM1C + TM5C)*X(C) + (TM1D + TM5D)*X(D) + (TM1E + TM5E)*X(E) + (TM1F + TM5F)*X(F) =\\
-= 26*X(A) + 15*X(B) + 0*X(C) + 5*X(D) + 10*X(E) + 35*X(F)$\\
-\newline
-La table des temps de production d’un produit par machine nous montre, que le produit C n’a pas besoins des deux machine en question, ce qui signifie que la solution la plus simple sera d’arreter la production des autres produits et de se concentrer sur la fabrication de produit C.
-\newline
-Une approche algorithmique confirme cette solution et nous donne le plan de production suivant:\\
+$$
+\begin{array}{rl}
+    f(X) = & (TM1A + TM5A)\cdot X(A) + (TM1B + TM5B)\cdot X(B) + (TM1C + TM5C)\cdot X(C) + (TM1D + TM5D)\cdot X(D) + (TM1E + TM5E)\cdot X(E) + (TM1F + TM5F)\cdot X(F) \\
+         = & 26X(A) + 15X(B) + 0X(C) + 5X(D) + 10X(E) + 35X(F) \\
+         = & X\cdot (26~15~0~5~10~35)^t
+\end{array}
+$$
 
-$X = \begin{pmatrix}
-0.0000\\
-0.0000\\
-135.6644\\
-0.0000\\
-0.0000\\
-0.0000\\
-\end{pmatrix}$
-\newline
-Par contre, cette solution ne donne pas assez de bénéfice pour l’entreprise, alors, il faut ajouter d’autres contraintes afin de trouver une vraie solution.
-\newline
-Tenant en compte le bénéfice de l’entreprise, on souhaite ne pas souspasser 70\% du bénéfice maximum. Si on considère cette nouvelle contrainte et qu’on calcule les montants des produits à fabriquer, on reçoit le graph suivant:\\
+La table des temps de production d’un produit par machine nous montre, que le
+produit C n’a pas besoins des deux machines en question, ce qui signifie que la
+solution la plus simple est d’arreter la production des autres produits et de
+se concentrer sur la fabrication du produit C. \\
+Une approche algorithmique confirme cette solution et nous donne le plan de
+production suivant: $X = (0 ~0 ~135.6644 ~0 ~0 ~0)$ \\
 
+Par contre, cette solution ne donne pas assez de bénéfice pour l’entreprise, il
+faut alors ajouter d’autres contraintes afin de trouver une vraie solution.
+Tenant en compte le bénéfice de l’entreprise, on souhaite ne pas souspasser
+70\% du bénéfice maximum. Si on considère cette nouvelle contrainte et qu’on
+calcule le montant des produits à fabriquer, on obtient le graphique
+(fig. \ref{fig_graph_personnel_temps}).
 
 %TODO intégrer lìmage graphe_personnel_temps.png
+\begin{figure}[position]
+    \begin{center}
+        \includegraphics[scale=0.35]{graph_personnel_temps}
+        \caption{
+            \label{fig_graph_personnel_temps} Legende de l'image (à faire ?).
+        }
+    \end{center}
+\end{figure}
 
+Pour respecter les 70\% du benefice maximum, l’entreprise doit fabriquer un
+total de 343.1 produits. Par contre, le deuxième graphique nous montre que la
+machine 5 n’est pas du tout utilisée jusqu’aux 89\%. Puisqu’on souhaite
+utiliser les deux machines, on choisit un plan de production correspondant à
+95,5\% pour raison de changement de la dérivée de la fonction du temps
+d’utilisation de la machine 5 à ce point-là. \\
 
-\newline
-Pour respecter les 70\% du benefice maximum, l’entreprise doit fabriquer un total de 343.1 produits. Par contre, le deuxième graphe nous montre que la machine 5 n’est pas du tout utilisée jusqu’aux 89\%. Puisqu’on souhaite utiliser les deux machines, on choisit un plan de production correspondant à 95,5\% pour raison de changement de la dérivée de la fonction du temps d’utilisation de la machine 5 à ce point-là.
-\nezwline
-Donc le plan de production de choix est le suivant:
-\newline
-
-$X = \begin{pmatrix}
-168.7394\\
-184.0703\\
-114.3787\\
-36.5623\\
-0.0000\\
-0.0000\\
-\end{pmatrix}$
-
-% TODO
-\\ \textbf{TODO} \\
+Donc le plan de production est le suivant: \\
+$X = (168 168.7394~ 184.0703~ 114.3787~ 36.5623~ 0.0000~ 0.0000)$
 
 \section{Programmation linéaire multicritère}
 
