@@ -13,6 +13,8 @@
 \usepackage{listings}
 \usepackage{hyperref}
 
+\renewcommand*{\familydefault}{\sfdefault}
+
 \title{Aide à la décision}
 \author{Dragibus}
 \date{}
@@ -23,13 +25,18 @@
 \newpage
 
 \section{Introduction}
-Cette étude se déroulera en trois parties. Dans la première nous considèrerons
-le nombre de produits de chaque type à produire pour optimiser les critères
-retenus par chaque cadre de l'entreprise ADécision. La deuxième partie
-comprendra une analyse de tous les critères considérés dans la première partie
-et la recherche d'une solution de compromis satisfaisant chacun d'entre-eux. La
-dernière partie consistera en l d'une solution finale parmis celles
-proposées précédemment.
+Dans le cadre de notre étude sur l'optimisation quantitative et qualitative
+pour le développement valorisé de vos produits, nous avons scindé votre
+problématique en trois sections. \\
+Dans un premier temps, nous étudierons objectivement les critères opérationnels
+proposés par vos cadres pour maximiser vos performances tant en matière de
+production qu'en qualité sur le long terme. \\
+Ensuite, nous établissons la synergie entre les critères précédemment cités.
+Cela amène à une totale compréhension et une vision globale des solutions
+envisagées. Par cela, nous entendons placer un compromis pour chacun des
+responsables concernés. \\
+La dernière partie consistera en l'étabissement d'une solution finale parmi
+celles proposées précédemment.
 
 \subsection{Définition}
 Nous définissons ici les notations que nous utiliserons dans la suite de ce
@@ -84,35 +91,40 @@ $$
 Dans cette partie, nous considérons un par un les différents critères retenus
 par les différents cadres de l’entreprise ADécision. Nous commençons par
 exprimer le problème sous forme d’un modèle mathématique. Il est possible de
-modéliser chacune des situations suivantes sous forme d’une fonction f de X à
-minimiser en respectant la condition $A . X \leq b$;
+modéliser chacune des situations suivantes sous forme d’une fonction $f$ de $X$ à
+minimiser en respectant la condition $A . X \leq b$. \\
 
-$A = \begin{pmatrix}
-11&15&0&5&0&10 \\
-0&1&2&8&7&12\\
-12&1&11&0&10&15\\
-2&10&5&4&13&7\\
-15&0&0&0&10&25\\
-5&5&13&12&8&0\\
-5&3&5&28&0&7\\
-1&1&1&5&0&2\\
-2&2&1&0&2&1\\
-1&0&3&2&6&0
-\end{pmatrix}$\\
-
-$b = \begin{pmatrix}
-4800\\
-4800\\
-4800\\
-4800\\
-4800\\
-4800\\
-4800\\
-650\\
-820\\
-585\\
-\end{pmatrix}$
-
+\begin{minipage}[c]{.49\linewidth}
+    \centering
+    $A = \begin{pmatrix}
+        11&15&0&5&0&10 \\
+        0&1&2&8&7&12\\
+        12&1&11&0&10&15\\
+        2&10&5&4&13&7\\
+        15&0&0&0&10&25\\
+        5&5&13&12&8&0\\
+        5&3&5&28&0&7\\
+        1&1&1&5&0&2\\
+        2&2&1&0&2&1\\
+        1&0&3&2&6&0
+    \end{pmatrix}$\\
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.49\linewidth}
+    \centering
+    $b = \begin{pmatrix}
+        4800\\
+        4800\\
+        4800\\
+        4800\\
+        4800\\
+        4800\\
+        4800\\
+        650\\
+        820\\
+        585\\
+    \end{pmatrix}$
+\end{minipage}
 
 \subsection{Comptable}
 L'objectif du comptable est de maximiser les bénéfices de l'entreprise.
@@ -145,15 +157,15 @@ $$
 $$
 \begin{array}{r l}
     P(X) = & X\cdot\left((13~11~13~19~20~10) + \frac{1}{60}(86~61~64~94~71~123)\right)^t \\
-         = & X\cdot\frac{1}{60}(866~721~844~1234~1271~723)^t \\
+    = & X\cdot\frac{1}{60}(866~721~844~1234~1271~723)^t \\
 \end{array}
 $$
 
 $$
 \begin{array}{r l}
     B(X) = & G(X) - P(X) \\
-         = & X\cdot\frac{1}{60}(814~479~956~986~1429~597)^t \\
-         = & X\cdot(13.5667~7.98333~15.9333~16.4333~23.8167~9.95)^t \\
+    = & X\cdot\frac{1}{60}(814~479~956~986~1429~597)^t \\
+    = & X\cdot(13.5667~7.98333~15.9333~16.4333~23.8167~9.95)^t \\
 \end{array}
 $$
 
@@ -161,18 +173,16 @@ L'on détermine donc le vecter X maximisant les bénéfices selon les contrainte
 $$
 \begin{array}{rl}
     f(X) = & -B(X) \\
-         = & X\cdot(-13.5667~-7.98333~-15.9333~-16.4333~-23.8167~-9.95)^t
+    = & X\cdot(-13.5667~-7.98333~-15.9333~-16.4333~-23.8167~-9.95)^t
 \end{array}
 $$
 
 sous les contraintes
 $$
-\left\{
-    \begin{split}
-        A\cdot X \leq b\\
-        0 \leq X
-    \end{split}
-\right.
+\left\{\begin{split}
+    A\cdot X \leq b\\
+    0 \leq X
+\end{split}\right.
 $$
 
 L'on obtient le résultat suivant : \\
@@ -186,18 +196,16 @@ Il faut donc minimiser la fonction suivante : \\
 $$
 \begin{array}{rl}
     f(X) = & -X(A) + -X(B) + -X(C) + -X(D) + -X(E) + -X(F) \\
-         = & X\cdot(-1~-1~-1~-1~-1~-1)^t
+    = & X\cdot(-1~-1~-1~-1~-1~-1)^t
 \end{array}
 $$
 
 en respectant les contraintes suivantes : \\
 $$
-  \left\{
-    \begin{split}
-     A\cdot X \leq b\\ 
-     0 \leq X
-    \end{split}
-  \right.
+\left\{\begin{split}
+    A\cdot X \leq b\\ 
+    0 \leq X
+\end{split}\right.
 $$
 
 L'on obtient le résultat suivant : $ X = (0~252.5~195.0~0~0~101.25) $ \\
@@ -227,7 +235,6 @@ pièces produites, le fait d’égaliser le nombre de produits par famille fait
 converger les deux résultats. On trouve un bénéfice de 5893,8 unités d’argent,
 ce qui correspond à 91,05\% du bénéfice maximal.
 
-
 \subsection{Responsable des stocks}
 Le responsable des stocks veut minimiser la taille des stocks, c'est à dire le
 nombre de produits ainsi que la quantité de matières premières stockée. On
@@ -239,8 +246,8 @@ La fonction à minimiser est donc la suivante : \\
 $$
 \begin{array}{rl}
     f(X) = & 2\cdot \sum_{p\in E_{MP}} S(p) \\
-         = & 5 X(A) + 6 X(B) + 8 X(D) + 9 X(E) + 4 X(F) \\
-         = & X\cdot(5~6~8~9~4)^t
+    = & 5 X(A) + 6 X(B) + 8 X(D) + 9 X(E) + 4 X(F) \\
+    = & X\cdot(5~6~8~9~4)^t
 \end{array}
 $$
 
@@ -251,9 +258,8 @@ résultat réaliste. On contraint le système en prenant alors d'autres
 critères. On peut maximiser le bénéfice ou la production par exemple. Nous
 avons choisi de traduire l’activité de l’entreprise grâce à son bénéfice. \\
 
-% TODO rajouter l'image qu'il y a sur le drive
-% + donner une explication (donc changer un peu le paragraphe suivant
-\textbf{TODO} \\
+\textbf{TODO rajouter l'image qu'il y a sur le drive
++ donner une explication (donc changer un peu le paragraphe suivant} \\
 
 La solution est considérée comme viable si le bénéfice est au moins supérieur à
 70\% du bénéfice total. On remarque un point d’inflection pour un stock de
@@ -271,9 +277,14 @@ minimiser la fonction suivante:\\
 
 $$
 \begin{array}{rl}
-    f(X) = & (TM1A + TM5A)\cdot X(A) + (TM1B + TM5B)\cdot X(B) + (TM1C + TM5C)\cdot X(C) + (TM1D + TM5D)\cdot X(D) + (TM1E + TM5E)\cdot X(E) + (TM1F + TM5F)\cdot X(F) \\
-         = & 26X(A) + 15X(B) + 0X(C) + 5X(D) + 10X(E) + 35X(F) \\
-         = & X\cdot (26~15~0~5~10~35)^t
+    f(X) = & (TM1A + TM5A)\cdot X(A) \\
+           & + (TM1B + TM5B)\cdot X(B) \\
+           & + (TM1C + TM5C)\cdot X(C) \\
+           & + (TM1D + TM5D)\cdot X(D) \\
+           & + (TM1E + TM5E)\cdot X(E) \\
+           & + (TM1F + TM5F)\cdot X(F) \\
+    = & 26X(A) + 15X(B) + 0X(C) + 5X(D) + 10X(E) + 35X(F) \\
+    = & X\cdot (26~15~0~5~10~35)^t
 \end{array}
 $$
 
@@ -291,7 +302,6 @@ Tenant en compte le bénéfice de l’entreprise, on souhaite ne pas souspasser
 calcule le montant des produits à fabriquer, on obtient le graphique
 (fig. \ref{fig_graph_personnel_temps}).
 
-%TODO intégrer lìmage graphe_personnel_temps.png
 \begin{figure}[position]
     \begin{center}
         \includegraphics[scale=0.35]{graph_personnel_temps}

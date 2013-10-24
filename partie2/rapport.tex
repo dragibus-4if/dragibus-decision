@@ -7,13 +7,15 @@ programmation mono-critères. \\
 % TODO mettre une référence vers le mono-critère au lieu de ça
 Prenant les stratégies de production pour chaque responsable comme suit :
 
-\begin{itemize}
-    \item Xcomptable = [235.625; 98.3929; 101.3393; 22.6786; 0; 50.625]
-    \item Xcommercial = [0; 206.03; 43.26; 14.7; 70.97; 163.61]
-    \item Xatelier = [0; 252.5; 195; 0; 0; 101.2500]
-    \item Xstocks = 1.0e-16 * [0.5614; 0.2369; 0.114; 0.0365; 0.0028; 0.2099]
-    \item Xpersonnel = [0; 0; 135.6644; 0; 0; 0]
-\end{itemize}
+$$
+\begin{array}{rllllllll}
+    X\mbox{comptable} =  & & (235.625&~ 98.3929&~ 101.3393&~ 22.6786&~ 0&~ 50.625) \\
+    X\mbox{commercial} = & & (0&~ 206.03&~ 43.26&~ 14.7&~ 70.97&~ 163.61) \\
+    X\mbox{atelier} =    & & (0&~ 252.5&~ 195&~ 0&~ 0&~ 101.2500) \\
+    X\mbox{stocks} =     & 10^{-16} \cdot &(0.5614&~ 0.2369&~ 0.114&~ 0.0365&~ 0.0028&~ 0.2099) \\
+    X\mbox{personnel} =  & & (0&~ 0&~ 135.6644&~ 0&~ 0&~ 0)
+\end{array}
+$$
 
 Et retenant les anciennes fonctions à optimiser, on trouve :
 
@@ -48,12 +50,13 @@ l'optimisation des solutions se fait en procédant à une interpolation linéair
 entre le cas générant le plus de bénéfices, et le cas idéal pour chaque
 responsable. \\
 
-% TODO réparer le positionnement de l'image
-%\begin{figure}
-%    \includegraphics{graph_multi.png}
-%    \caption{Graphe représentant l'évolution du bénéfice (en euros) par
-%             rapport au pourcentage d'interpolation linéaire.}
-%\end{figure}
+\begin{figure}
+    \begin{center}
+        \includegraphics{partie2/graph_multi.png}
+        \caption{Graphe représentant l'évolution du bénéfice (en euros) par
+        rapport au pourcentage d'interpolation linéaire.}
+    \end{center}
+\end{figure}
 
 Nous pouvons noter que les critères du responsable d'atelier et du responsable
 commercial n'influent pas énormément sur le bénéfice, contrairement au
