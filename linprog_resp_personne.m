@@ -1,6 +1,7 @@
-function[Xpersonnel] = personnel(benef)
+function[Xpersonnel] = personnel(benef, funcMin)
 
-f = [26; 15; 0; 5; 10; 35];
+f = funcMin;
+%f = [26; 15; 0; 5; 10; 35];
 
 A = [11 15 0 5 0 10;
       0 1 2 8 7 12;
